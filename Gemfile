@@ -15,6 +15,7 @@ gem 'puma', '~> 3.0'
 
 gem 'figaro'
 
+gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -42,6 +43,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'rspec-rails'
 end
 
 group :development do
