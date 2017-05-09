@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :token
       t.integer :token_expiration
+      t.integer :link_karma
+      t.integer :comment_karma
 
       t.timestamps
     end

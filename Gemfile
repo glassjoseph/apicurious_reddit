@@ -14,6 +14,9 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 
 gem 'figaro'
+gem 'faraday'
+
+gem 'httparty'
 
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'
