@@ -13,7 +13,6 @@ class RedditService
 
 # /subreddits/mine/subscriber
   def subreddits
-
     @conn.get("/subreddits/mine/subscriber/")
   end
 
