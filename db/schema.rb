@@ -19,8 +19,11 @@ ActiveRecord::Schema.define(version: 20170509005506) do
     t.string   "uid"
     t.string   "name"
     t.string   "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "token_expiration"
+    t.integer  "link_karma"
+    t.integer  "comment_karma"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end

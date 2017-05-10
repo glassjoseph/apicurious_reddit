@@ -1,1 +1,17 @@
-<%= link_to "Login with Reddit", '/auth/reddit'  %>
+
+<% if current_user %>
+  <ul>
+    <li>  User ID: <%= current_user.uid %> </li>
+    <li>  Username: <%= current_user.name %> </li>
+    <li>  Token Expiration: <%= Time.at(current_user.token_expiration) %> </li>
+    <li>  Post Karma: <%= current_user.link_karma %> </li>
+    <li>  Comment Karma: <%= current_user.comment_karma %> </li>
+  </ul>
+  <%= link_to "My Subreddits"  %>
+
+<% else %>
+  <%= link_to "Login with Reddit", '/auth/reddit'  %>
+<% end %>
+<!-- viewcontroller calls poro
+poro calls service
+service responds from  -->
