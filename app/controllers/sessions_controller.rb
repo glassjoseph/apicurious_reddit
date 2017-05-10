@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     auth_info = request.env["omniauth.auth"]
     if user = User.from_omniauth(auth_info)
       session[:user_id] = user.id
+      RedditService.user_subreddits(user)
     end
 
     # token = auth_info['credentials']['token']
