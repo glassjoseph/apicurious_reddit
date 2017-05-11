@@ -13,10 +13,14 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 
+
 gem 'figaro'
 gem 'faraday'
+gem 'redcarpet'
+
 
 gem 'httparty'
+
 
 gem 'omniauth-oauth2', '~> 1.3.1'
 gem 'omniauth-reddit', :git => 'git://github.com/jackdempsey/omniauth-reddit.git'

@@ -1,6 +1,8 @@
 
 <% if current_user %>
-<h1>User info</h1>
+
+<div class="user-info">
+  <h1>User info</h1>
   <ul>
     <li>  User ID: <%= current_user.uid %> </li>
     <li>  Username: <%= current_user.name %> </li>
@@ -8,18 +10,21 @@
     <li>  Post Karma: <%= current_user.link_karma %> </li>
     <li>  Comment Karma: <%= current_user.comment_karma %> </li>
   </ul>
+</div>
 
   <hr>
 
   <ul>
     <h2>My subreddits</h2>
     <% current_user.subreddits.each do |subreddit| %>
-      <li> <a href="#"></a>  <%= subreddit.display_name %> </li>
+      <li> <a href="<%= subreddit.url %>">  <%= subreddit.display_name %> </a> </li>
       <li> <%= subreddit.url %> </li>
       <li> <%= subreddit.title %> </li>
-      <li> <%#= subreddit.description %> </li>
       <li> Subscribers: <%= subreddit.subscribers %> </li>
       <li> <img src="<%= subreddit.icon_img %>" alt="<%= subreddit.display_name %>" width= 5%>   </li>
+      <div class="description">
+        <%= subreddit.description_rendered.html_safe %>
+      </div>
       <hr>
     <% end %>
   </ul>
