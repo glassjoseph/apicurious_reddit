@@ -1,0 +1,11 @@
+<% @subreddits.each do |subreddit| %>
+  <% unless subreddit.icon_img.empty? %>
+    <img src="<%= subreddit.icon_img %>" alt="<%= subreddit.display_name %>" width= 5%>
+  <% end %>
+
+  <a href="<%= subreddit.url %>">
+    <%= subreddit.display_name %>
+  </a>
+  <%= subreddit.title %>
+  <hr>
+<% end %>
