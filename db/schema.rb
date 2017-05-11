@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510195418) do
+ActiveRecord::Schema.define(version: 20170511202930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "posts", force: :cascade do |t|
+    t.string  "pid"
+    t.json    "data"
+    t.string  "url"
+    t.integer "score"
+    t.json    "preview"
+    t.string  "title"
+    t.integer "downs"
+    t.integer "ups"
+    t.string  "permalink"
+    t.string  "thumbnail"
+    t.integer "subreddit_id"
+    t.index ["subreddit_id"], name: "index_posts_on_subreddit_id", using: :btree
+  end
 
   create_table "subreddits", force: :cascade do |t|
     t.string  "display_name"
@@ -37,5 +52,6 @@ ActiveRecord::Schema.define(version: 20170510195418) do
     t.datetime "updated_at",       null: false
   end
 
+  add_foreign_key "posts", "subreddits"
   add_foreign_key "subreddits", "users"
 end

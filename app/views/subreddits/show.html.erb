@@ -12,3 +12,13 @@
 <div class="description">
   <%= @subreddit.description_rendered.html_safe %>
 </div>
+
+
+<hr>
+<h2>Posts</h2>
+<% @posts.each do |post| %>
+
+  Title: <a href= '<%= "/r/#{@subreddit.display_name}/comments/#{post.pid}"%>' > <%=post.title %> </a>
+  Score: <%=post.score %>
+  <br>
+<% end %>

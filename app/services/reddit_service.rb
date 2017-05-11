@@ -18,11 +18,10 @@ class RedditService
     end
   end
 
-  # def subreddit_posts
-  #   response[:data][:children].each do |post|
-  #     post[:data][:id]
-  #   end
-  # end
+  def self.subreddit_posts(subreddit_url)
+      response = Faraday.get("https://www.reddit.com#{subreddit_url[0..-1]}new.json")
+      response = JSON.parse(response.body, symbolize_names: true)
+  end
 
 
   # ["Authorization"] = "bearer #{current_user.token}"
