@@ -1,0 +1,14 @@
+<h1> <%= @subreddit.display_name %> </h1>
+<h4> <%= @subreddit.title %> </h2>
+
+<ul>
+
+<li> Subscribers: <%= @subreddit.subscribers %> </li>
+<% unless @subreddit.icon_img.empty? %>
+  <li> <img src="<%= @subreddit.icon_img %>" alt="<%= @subreddit.display_name %>" width= 5%>   </li>
+<% end %>
+</ul>
+
+<div class="description">
+  <%= @subreddit.description_rendered.html_safe %>
+</div>

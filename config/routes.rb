@@ -7,4 +7,9 @@ Rails.application.routes.draw do
   get 'auth/reddit', as: "reddit_login"
 
   get 'auth/reddit/callback', to: "sessions#create"
+
+
+  # get 'r/:id', as: "subreddit"
+  resources :subreddits, path: "r", only: [:index, :show]
+
 end

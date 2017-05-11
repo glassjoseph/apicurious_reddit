@@ -17,14 +17,17 @@
   <ul>
     <h2>My subreddits</h2>
     <% current_user.subreddits.each do |subreddit| %>
-      <li> <a href="<%= subreddit.url %>">  <%= subreddit.display_name %> </a> </li>
+        <% unless subreddit.icon_img.empty? %>
+          <li>
+          <img src="<%= subreddit.icon_img %>" alt="<%= subreddit.display_name %>" width= 5%>
+        <% end %>
+        <a href="<%= subreddit.url %>">
+          <%= subreddit.display_name %> </a> </li>
       <li> <%= subreddit.url %> </li>
       <li> <%= subreddit.title %> </li>
       <li> Subscribers: <%= subreddit.subscribers %> </li>
-      <li> <img src="<%= subreddit.icon_img %>" alt="<%= subreddit.display_name %>" width= 5%>   </li>
-      <div class="description">
-        <%= subreddit.description_rendered.html_safe %>
-      </div>
+      <li>    </li>
+
       <hr>
     <% end %>
   </ul>
