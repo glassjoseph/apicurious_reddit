@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511202930) do
+ActiveRecord::Schema.define(version: 20170512133826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "score"
+    t.json    "replies"
+    t.string  "author"
+    t.string  "parent_id"
+    t.string  "body"
+    t.string  "body_html"
+    t.string  "name"
+    t.integer "depth"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string  "pid"
