@@ -6,22 +6,9 @@ class Post < ApplicationRecord
       posts = []
       response = RedditService.subreddit_posts(subreddit_url)
       response[:data][:children].each do |post|
-        data = post[:data]
-        pid = post[:data][:id]
-        url = post[:data][:url]
-        score = post[:data][:score]
-        preview = post[:data][:preview]
-        title = post[:data][:title]
-        downs = post[:data][:downs]
-        ups = post[:data][:ups]
-        permalink = post[:data][:permalink]
-        thumbnail = post[:data][:thumbnail]
-        # subreddit <<
-        posts << Post.new(data: data, pid: pid, url: url, score: score, preview: preview, title: title, downs: downs, ups: ups, permalink: permalink, thumbnail: thumbnail)
+        pd = post[:data]
+        posts << Post.new(data: post[:data], pid: pd[:pid], url: pd[:url], score: pd[:score], preview: pd[:preview], title: pd[:title], downs: pd[:downs], ups: pd[:ups], permalink: pd[:permalink], thumbnail: pd[:thumbnail])
       end
       posts.take(15)
     end
-
-
-
 end

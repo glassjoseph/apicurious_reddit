@@ -19,9 +19,16 @@ class RedditService
   end
 
   def self.subreddit_posts(subreddit_url)
-      response = Faraday.get("https://www.reddit.com#{subreddit_url[0..-1]}new.json")
-      response = JSON.parse(response.body, symbolize_names: true)
+    response = Faraday.get("https://www.reddit.com#{subreddit_url[0..-1]}new.json")
+    response = JSON.parse(response.body, symbolize_names: true)
   end
+
+  def self.comments(subreddit_name, post_id)
+    response = Faraday.get("https://www.reddit.com/r/#{subreddit_name}/comments/#{post_id}.json")
+    response = JSON.parse(response.body, symbolize_names: true)
+  end
+
+
 
 
   # ["Authorization"] = "bearer #{current_user.token}"
