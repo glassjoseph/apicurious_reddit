@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'auth/reddit/callback', to: "sessions#create"
 
 
-  # get 'r/:id', as: "subreddit"
-  resources :subreddits, path: "r", only: [:index, :show]
+  resources :subreddits, path: "r", only: [:index, :show] do
+    get '/comments/:id(.:format)', to: "posts#show", as: "post"
+  end
 
 end

@@ -17,7 +17,7 @@
 <hr>
 <h2>Posts</h2>
 <% @posts.each do |post| %>
-
+  <img class="thumbnail" src="<%=post.thumbnail%>" alt="">
   Title: <a href= '<%= "/r/#{@subreddit.display_name}/comments/#{post.pid}"%>' > <%=post.title %> </a>
   Score: <%=post.score %>
   <br>
